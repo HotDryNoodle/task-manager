@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mission-planer.local/schemas/task_result.schema.json",
+  "title": "TaskResult",
+  "type": "object",
+  "required": ["schema_version", "task_id", "request_id", "tool_name", "status"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "task_id": { "type": "string" },
+    "request_id": { "type": "string" },
+    "tool_name": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["submitted", "validating", "queued", "running", "succeeded", "failed", "cancelled", "no_result"]
+    },
+    "exit_code": { "type": "integer" },
+    "summary": { "type": "object" },
+    "result": { "type": "object" },
+    "artifacts": { "type": "object" },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "errors": { "type": "array", "items": { "type": "string" } },
+    "started_at_utc": { "type": "string" },
+    "finished_at_utc": { "type": "string" },
+    "duration_sec": { "type": "number" }
+  },
+  "additionalProperties": true
+}

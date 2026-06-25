@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mission-planer.local/schemas/task_envelope.schema.json",
+  "title": "TaskEnvelope",
+  "type": "object",
+  "required": ["schema_version", "message_type", "request_id", "tool_name", "payload"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "message_type": {
+      "type": "string",
+      "enum": [
+        "task.submit",
+        "task.status",
+        "task.result",
+        "task.cancel",
+        "task.heartbeat"
+      ]
+    },
+    "request_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string" },
+    "tool_name": { "type": "string", "minLength": 1 },
+    "tool_version": { "type": "string" },
+    "plugin_executable": { "type": "string" },
+    "priority": { "type": "integer", "minimum": 0, "maximum": 10 },
+    "deadline_utc": { "type": "string", "format": "date-time" },
+    "idempotency_key": { "type": "string" },
+    "payload": { "type": "object" },
+    "reply_to": { "type": "string" },
+    "trace_id": { "type": "string" }
+  },
+  "additionalProperties": false
+}

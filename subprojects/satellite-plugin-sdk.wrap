@@ -1,0 +1,4 @@
+[wrap-git]
+url = file:///home/hotdry/projects/satellite-plugin-sdk
+revision = HEAD
+directory = satellite-plugin-sdk

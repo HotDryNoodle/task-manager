@@ -1,0 +1,1 @@
+option('zmq', type: 'feature', value: 'enabled', description: 'Build with libzmq')
