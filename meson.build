@@ -30,18 +30,18 @@ taskmgr_lib = static_library(
 
 executable('task-manager', 'src/task-manager/main.cpp',
   include_directories: inc, link_with: taskmgr_lib,
-  dependencies: zmq_dep.found() ? [json_dep, zmq_dep] : [json_dep],
+  dependencies: zmq_dep.found() ? [satellite_common_dep, json_dep, zmq_dep] : [satellite_common_dep, json_dep],
   cpp_args: zmq_dep.found() ? ['-DMP_HAVE_ZMQ'] : [],
   install: true)
 
 executable('task-client', 'src/task-manager/client.cpp',
   include_directories: inc, link_with: taskmgr_lib,
-  dependencies: [json_dep], install: true)
+  dependencies: [satellite_common_dep, json_dep], install: true)
 
 task_zmq_cpp_args = zmq_dep.found() ? ['-DMP_HAVE_ZMQ'] : []
 executable('task-zmq-client', 'src/task-manager/zmq_client.cpp',
-  include_directories: inc,
-  dependencies: zmq_dep.found() ? [json_dep, zmq_dep] : [json_dep],
+  include_directories: inc, link_with: taskmgr_lib,
+  dependencies: zmq_dep.found() ? [satellite_common_dep, json_dep, zmq_dep] : [satellite_common_dep, json_dep],
   cpp_args: task_zmq_cpp_args, install: true)
 
 install_data('schemas/task_envelope.schema.json', 'schemas/task_result.schema.json',
