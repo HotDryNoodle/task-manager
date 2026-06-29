@@ -43,6 +43,3 @@ executable('task-zmq-client', 'src/task-manager/zmq_client.cpp',
   include_directories: inc, link_with: taskmgr_lib,
   dependencies: zmq_dep.found() ? [satellite_common_dep, json_dep, zmq_dep] : [satellite_common_dep, json_dep],
   cpp_args: task_zmq_cpp_args, install: true)
-
-install_data('schemas/task_envelope.schema.json', 'schemas/task_result.schema.json',
-  install_dir: get_option('datadir') / 'task-manager/schemas')
