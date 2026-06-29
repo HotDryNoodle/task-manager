@@ -18,5 +18,5 @@ if [[ -f "$WORKSPACE/install/env.sh" ]]; then
   exec "$WORKSPACE/scripts/smoke-integration.sh"
 fi
 
-echo "skip workspace integration (no $WORKSPACE/install/env.sh; run workspace build-all-local.sh)" >&2
+echo "skip workspace integration (no $WORKSPACE/install/env.sh; run workspace build-all.sh)" >&2
 exit 0
