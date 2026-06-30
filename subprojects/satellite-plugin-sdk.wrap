@@ -1,4 +1,4 @@
 [wrap-git]
 url = https://github.com/HotDryNoodle/satellite-plugin-sdk.git
-revision = 08b8979f67aca7e9afef7fea661024cb5c169c36
+revision = 594c532a66a70d4d915073c9058a8574402754e5
 directory = satellite-plugin-sdk
